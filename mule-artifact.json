@@ -1,8 +1,5 @@
 {
     "minMuleVersion": "4.4.0",
-    "javaSpecificationVersions": ["1.8"],
-    "secureProperties": [
-        "mule.key"
-    ]
-
+    "javaSpecificationVersions": ["17"],
+    "secureProperties": ["mule.key"]
 }
