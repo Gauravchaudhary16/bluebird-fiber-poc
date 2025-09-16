@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<activeProfiles>
+		<activeProfile>anypoint-exchange-v3</activeProfile>
+		<activeProfile>mulesoft-exchange</activeProfile>
+		<activeProfile>mulesoft-nexus-ee</activeProfile>
+	</activeProfiles>
+
+	<profiles>
+		<profile>
+			<id>anypoint-exchange-v3</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<mulesoft.exchange.groupid>0b9901a1-9f69-40b4-be5b-64a2a5003866</mulesoft.exchange.groupid>
+			</properties>
+
+			<repositories>
+				<repository>
+					<id>anypoint-exchange-v3</id>
+					<name>Mulesoft Exchange  Repository</name>
+					<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${mulesoft.exchange.groupid}/maven</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+
+		<profile>
+			<id>mulesoft-exchange</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<mulesoft.exchange.groupid>
+				</mulesoft.exchange.groupid>
+			</properties>
+
+			<repositories>
+				<repository>
+					<id>-mulesoft-exchange</id>
+					<name>Mulesoft Exchange  Repository</name>
+					<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+
+		<!-- mulesoft-nexus-ee -->
+		<profile>
+			<id>mulesoft-nexus-ee</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<repositories>
+				<repository>
+					<id>-mulesoft-nexus-ee</id>
+					<name>Mulesoft Nexus Enterprise  Repository</name>
+					<url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+
+		<!-- standard-repositories -->
+		<profile>
+			<id>standard-repositories</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>Central</id>
+					<name>Central</name>
+					<url>https://repo1.maven.org/maven2/</url>
+					<layout>default</layout>
+				</repository>
+				<repository>
+					<id>anypoint-exchange</id>
+					<name>Anypoint Exchange</name>
+					<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+					<layout>default</layout>
+				</repository>
+				<repository>
+					<id>mulesoft-releases</id>
+					<name>MuleSoft Releases Repository</name>
+					<url>https://repository.mulesoft.org/releases/</url>
+					<layout>default</layout>
+				</repository>
+				<repository>
+					<id>mule-public</id>
+					<name>MuleSoft Public Repository</name>
+					<url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
+					<layout>default</layout>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>mule-releases</id>
+					<layout>default</layout>
+					<url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
+					<id>mulesoft-release</id>
+					<name>mulesoft release repository</name>
+					<layout>default</layout>
+					<url>https://repository.mulesoft.org/nexus/content/groups/public</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
+					<id>mulesoft-ee-release</id>
+					<url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+	</profiles>
+
+	<pluginGroups>
+		<pluginGroup>org.mule.tools</pluginGroup>
+	</pluginGroups>
+
+	<servers>
+		<server>
+			<id>mulesoft-nexus-ee</id>
+			<username>${MULESOFT_NEXUS_EE_USERNAME}</username>
+			<password>${MULESOFT_NEXUS_EE_SECRET}</password>
+		</server>
+
+		<server>
+			<id>anypoint-exchange-v3</id>
+			<username>~~~Client~~~</username>
+			<password>${MULESOFT_CICD_CLIENT_ID}~?~${MULESOFT_CICD_CLIENT_SECRET}</password>
+		</server>
+
+		<server>
+			<id>-mulesoft-exchange</id>
+			<username>~~~Client~~~</username>
+			<password>${MULESOFT_CICD_CLIENT_ID}~?~${MULESOFT_CICD_CLIENT_SECRET}</password>
+		</server>
+	</servers>
+</settings>
