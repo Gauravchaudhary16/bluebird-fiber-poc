@@ -2,19 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.afcu</groupId>
-	<artifactId>afcu-usps-sys</artifactId>
+	<groupId>com.ntt</groupId>
+	<artifactId>bluebird-fiber-poc</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>afcu-usps-sys</name>
+	<name>bluebird-fiber-poc</name>
 
 	<properties>
-		<api.name>Usps SAPI</api.name>
+		<api.name>BlueBird Fiber POC</api.name>
 		<api.version>v1</api.version>
 		<anypoint.platform.visualizerLayer>System</anypoint.platform.visualizerLayer>
 
-		<orgId>0b9901a1-9f69-40b4-be5b-64a2a5003866</orgId>
+		<orgId>0b8c6a99-f870-484d-8a3f-8dfe731fd011</orgId>
 		<exchange.url>https://maven.anypoint.mulesoft.com/api/v3/organizations/{orgId}/maven</exchange.url>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,9 +40,6 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>${application.runtimeVersion}</muleVersion>
-						<connectedAppClientId>${MULESOFT_CICD_CLIENT_ID}</connectedAppClientId>
-						<connectedAppClientSecret>${MULESOFT_CICD_CLIENT_SECRET}</connectedAppClientSecret>
-						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<applyLatestRuntimePatch>true</applyLatestRuntimePatch>
 						<applicationName>${application.name}</applicationName>
 						<environment>${anypoint.platform.environment}</environment>
@@ -77,38 +74,13 @@
 			<artifactId>mule-http-connector</artifactId>
 			<version>1.10.3</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-oauth-module</artifactId>
-			<version>1.1.21</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-objectstore-connector</artifactId>
-			<version>1.2.2</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-sockets-connector</artifactId>
-			<version>1.2.5</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>com.mulesoft.modules</groupId>
 			<artifactId>mule-secure-configuration-property-module</artifactId>
 			<version>1.2.7</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>0b9901a1-9f69-40b4-be5b-64a2a5003866</groupId>
-			<artifactId>usps-sys-api-spec</artifactId>
-			<version>1.0.0</version>
-			<classifier>oas</classifier>
-			<type>zip</type>
-		</dependency>
+		</dependency>		
 	</dependencies>
 
 	<repositories>
@@ -152,3 +124,4 @@
 		</repository>
 	</distributionManagement>
 </project>
+
